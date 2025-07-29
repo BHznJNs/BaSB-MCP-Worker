@@ -1,22 +1,21 @@
 import { McpAgent } from "agents/mcp";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { setTargetEndpoint, mcpServerFactory } from "basb-mcp";
+import { mcpServerFactory } from "basb-mcp";
 
 export class MyMCP extends McpAgent {
 	server = new McpServer({
 		name: "BaSB-MCP",
-		version: "1.0.0",
+		version: "1.0.4",
 	});
 
 	async init(): Promise<void> {
-		this.server = mcpServerFactory()
+		const targetEndpoint = (this.env as Env).TARGET_ENDPOINT;
+		this.server = mcpServerFactory(targetEndpoint);
 	}
 }
 
 export default {
 	fetch(request: Request, env: Env, ctx: ExecutionContext) {
-		setTargetEndpoint(env.TARGET_ENDPOINT);
-
 		const url = new URL(request.url);
 
 		if (url.pathname === "/sse" || url.pathname === "/sse/message") {
