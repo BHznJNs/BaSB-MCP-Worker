@@ -1,6 +1,6 @@
 {
 	"name": "basb-mcp-worker",
-	"version": "0.0.0",
+	"version": "0.1.0",
 	"private": true,
 	"scripts": {
 		"deploy": "wrangler deploy",
@@ -14,5 +14,10 @@
 		"typescript": "^5.5.2",
 		"vitest": "~3.2.0",
 		"wrangler": "^4.26.0"
+	},
+	"dependencies": {
+		"@modelcontextprotocol/sdk": "^1.17.0",
+		"agents": "^0.0.109",
+		"basb-mcp": "^1.0.1"
 	}
 }
