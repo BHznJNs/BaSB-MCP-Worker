@@ -4,7 +4,7 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "basb-mcp-worker",
+	"name": "basb-mcp-worker-self",
 	"main": "src/index.ts",
 	"compatibility_date": "2025-07-26",
 	"observability": {
